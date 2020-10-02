@@ -2,7 +2,33 @@
 
 ```java
 
-	String path = "/home/yimibus/NetBeansProjects/Imagenes/src/imagenes/3.jpg";
+    /**
+     * Set image to bytes
+     * 
+     * @param ImageName
+     * @return
+     * @throws IOException 
+     */
+    public static byte[] extractBytes (String ImageName) throws IOException {
+        // open image
+        File imgPath = new File(ImageName);
+        BufferedImage bufferedImage = ImageIO.read(imgPath);
+
+        // get DataBufferBytes from Raster
+        WritableRaster raster = bufferedImage.getRaster();
+        DataBufferByte data = (DataBufferByte) raster.getDataBuffer();
+
+        return ( data.getData() );
+    }
+    
+    /**
+     * Example
+     * 
+     * @param args
+     * @throws IOException 
+     */
+    public static void main(String[] args) throws IOException {
+        String path = "/home/yimibus/NetBeansProjects/Imagenes/src/imagenes/3.jpg";
         FileInputStream fis = null;
 
         ConnectionDatabase connection = new ConnectionDatabase();
@@ -27,5 +53,7 @@
         }
         
         connection.closeConnection();
+
+    }
 
 ```
