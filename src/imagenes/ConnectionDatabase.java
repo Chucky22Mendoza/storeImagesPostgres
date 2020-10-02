@@ -19,14 +19,27 @@ public class ConnectionDatabase {
     private final String user = "postgres";
     private final String password = "12345";
     
+    /**
+     * Connection for database
+     * 
+     * @return 
+     */
     public Connection getConnection() {
 	return connection;
     }
 
+    /**
+     * Init connection
+     * 
+     * @param connection 
+     */
     public void setConnection(Connection connection) {
 	this.connection = connection;
     }
     
+    /**
+     * New connection
+     */
     public void createConnection() {
         try {
             Class.forName("org.postgresql.Driver");
@@ -38,6 +51,9 @@ public class ConnectionDatabase {
         }
     }
     
+    /**
+     * Close connection
+     */
     public void closeConnection() {
         try {
             connection.close();

@@ -23,6 +23,13 @@ import javax.imageio.ImageIO;
  */
 public class Imagenes {
     
+    /**
+     * Set image to bytes
+     * 
+     * @param ImageName
+     * @return
+     * @throws IOException 
+     */
     public static byte[] extractBytes (String ImageName) throws IOException {
         // open image
         File imgPath = new File(ImageName);
@@ -35,6 +42,12 @@ public class Imagenes {
         return ( data.getData() );
     }
     
+    /**
+     * Example
+     * 
+     * @param args
+     * @throws IOException 
+     */
     public static void main(String[] args) throws IOException {
         String path = "/home/yimibus/NetBeansProjects/Imagenes/src/imagenes/3.jpg";
         FileInputStream fis = null;
